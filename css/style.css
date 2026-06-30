@@ -7,10 +7,35 @@
 
 body{
     min-height:100vh;
-    background:#000;
+    background:#000 !important;
     color:#fff;
     display:flex;
     flex-direction:column;
+    overflow-x:hidden;
+}
+
+/* Hiệu ứng nền */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(180px);
+    z-index:-1;
+}
+
+body::before{
+    background:#111;
+    top:-200px;
+    left:-200px;
+}
+
+body::after{
+    background:#222;
+    bottom:-200px;
+    right:-200px;
 }
 
 header{
@@ -26,7 +51,7 @@ header h1{
 
 header p{
     font-size:20px;
-    color:#ccc;
+    color:#bdbdbd;
 }
 
 .menu{
@@ -44,15 +69,15 @@ header p{
     text-decoration:none;
     color:#fff;
 
-    background:rgba(255,255,255,0.05);
-    border:2px solid rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.03);
+    border:2px solid rgba(255,255,255,0.25);
     border-radius:25px;
 
     padding:35px 30px;
 
     backdrop-filter:blur(10px);
 
-    transition:all 0.35s ease;
+    transition:all .35s ease;
 }
 
 .card h2{
@@ -61,7 +86,7 @@ header p{
 }
 
 .card p{
-    color:#bdbdbd;
+    color:#cfcfcf;
     line-height:1.7;
     font-size:16px;
 }
@@ -69,11 +94,12 @@ header p{
 .card:hover{
     transform:translateY(-10px);
     border-color:#fff;
-    background:rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.08);
     box-shadow:0 15px 35px rgba(255,255,255,0.15);
 }
 
 @media (max-width:768px){
+
     header h1{
         font-size:28px;
     }
@@ -84,5 +110,9 @@ header p{
 
     .card h2{
         font-size:22px;
+    }
+
+    .menu{
+        grid-template-columns:1fr;
     }
 }
